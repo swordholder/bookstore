@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Authorization</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    .error
+    {
+        color: #ff0000;
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="container" style="max-width:450px">
+
+    <form th:action="@{/login}" method="POST" th:object="${user}" autocomplete="off" class="form-signin">
+        <h3 class="form-signin-heading">Bookstore login</h3>
+        <br/>
+
+        <input type="text" id="email"  name="email" th:placeholder="Email"
+               class="form-control" th:field="*{email}" />
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></p>
+         <br/>
+        <input type="password" th:placeholder="Password"
+               id="password" name="password"  class="form-control" th:field="*{password}"/>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></p>
+         <br/>
+
+        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login >></button>
+    </form>
+
+</div>
+</body>
+</html>

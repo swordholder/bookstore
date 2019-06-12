@@ -1,2 +1,2 @@
 # bookstore
-spring mvc sample project
+Spring mvc sample bookstore project with some basic authorization and mvc demo
